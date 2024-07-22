@@ -1,13 +1,13 @@
 # Plant-Blog
 A blog that allows you to talk about plant knowledge  
 
-# User Story
+## User Story
 
 AS A marketing student
 I WANT a personal blog
 SO THAT I can showcase my thoughts and experiences
 
-# Acceptance Criteria
+## Acceptance Criteria
 
 GIVEN a personal blog
 WHEN I load the app,
