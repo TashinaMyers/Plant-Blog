@@ -3,13 +3,13 @@ A blog that allows you to talk about plant knowledge
 
 # User Story
 
-## AS A marketing student
+AS A marketing student
 I WANT a personal blog
 SO THAT I can showcase my thoughts and experiences
 
 # Acceptance Criteria
 
-## GIVEN a personal blog
+GIVEN a personal blog
 WHEN I load the app,
 THEN I am presented with the landing page containing a form with labels and inputs for username, blog title, and blog content.
 WHEN I submit the form,
