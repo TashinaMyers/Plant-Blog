@@ -30,3 +30,5 @@ WHEN I take a closer look at a single blog entry in the list,
 THEN I can see the title, the content, and the author of the post.
 WHEN I view the footer,
 THEN I am presented with a link to the developer's portfolio.
+
+https://tashinamyers.github.io/Plant-Blog/
