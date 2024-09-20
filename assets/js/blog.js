@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const postsContainer = document.getElementById('posts-container');
-    const blogPosts = JSON.parse(localStorage.getItem('blogposts')) || [];
+    const blogPosts = localStorage.getItem('blogposts') || [];
 
     if (blogPosts.length === 0) {
         postsContainer.innerHTML = "<p>No propagations yet!</p>";
