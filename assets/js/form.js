@@ -1,52 +1,52 @@
+const toggleButton = document.getElementById('toggle-theme');
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleButton.textContent = 'Light Mode';
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggleButton = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme');
-
-    if (currentTheme === 'light') {
-        document.body.classList.remove('dark-theme');
+toggleButton.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+        toggleButton.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
     } else {
-        document.body.classList.add('dark-theme');
+        toggleButton.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
     }
-
-    themeToggleButton.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
-
-        let theme = 'light';
-        if (document.body.classList.contains('dark-theme')) {
-            theme = 'dark';
-        }
-        localStorage.setItem('theme', theme);
-    });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
     const blogForm = document.getElementById('blog-form');
     const errorMessage = document.getElementById('error-message');
 
-    blogForm.addEventListener('submit', event => { 
+blogForm.addEventListener('submit', event => {
         event.preventDefault();
+    if (!validateForm()) {
+        showErrorMessage ("please fill out all required fiels.");
+        return;
+    }
+    // Show loading indicator
+    showLoadingIndicator();
 
-        const username = document.getElementById('username').value.trim();
-        const content = document.getElementById('content').value.trim();
+    // Handle form submission
+    submitFormData(new FormData(blogForm))
+        .then(response => {
+            // Handle successful submission
+            showSuccessMessage("Blog post submitted successfully!");
+        })
+        .catch(error => {
+            // Handle submission error
+            showErrorMessage("Error submitting blog post: " + error.message);
+        })
+        .finally(() => {
+            // Hide loading indicator
+            hideLoadingIndicator();
+        });
+});
 
-        if (!username || !content) {
-            errorMessage.textContent = 'All fields are required!';
-            return;
-        }
-
-        const newPost = {
-            username,
-            content,
-            timestamp: new Date().toLocaleString()
-        };
-
-        let blogPosts = JSON.parse(localStorage.getItem('blogposts')) || [];
-        blogPosts.push(newPost);
-
-        localStorage.setItem('blogposts', JSON.stringify(blogPosts));
-
-        blogForm.reset();
-        errorMessage.textContent = 'Blog post submitted successfully!';
-    });
+// Example validation function
+function validateForm() {
+    // Implement your validation logic here
+    return true; // or false based on validation
+};
 });

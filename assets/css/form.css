@@ -25,7 +25,7 @@ body {
     padding: 10px;
 }
 
-#toggle-theme, #back-button {
+#toggle-theme {
     padding: 0.5rem 1rem;
     cursor: pointer;
 }
@@ -36,13 +36,8 @@ body {
     width: 35%;
     justify-content: center;
     margin: auto;
-    border: 2px solid var(--red);
+    border: 2px solid  rgb(0, 51, 0);
     padding: 5px;
-}
-
-.dark-mode .post {
-    border: 1px solid rgb(235, 250, 235);
-    color:  rgb(235, 250, 235);
 }
 
 #link {
@@ -52,5 +47,4 @@ body {
 #link:hover {
     color: rgb(77, 40, 0);
     box-shadow: 0px 0px 10px;
-    
 }
